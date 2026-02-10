@@ -1,16 +1,13 @@
 <?php
-function inverd(&$a, &$b) {
-    $c = $a;
-    $a = $b;
-    $b = $c;
+function valid_email($email){
+    $result=trim($email);
+    if(filter_var($result,FILTER_VALIDATE_EMAIL)){
+        return "true";
+    }else{
+        echo "false";
+    }
 }
-
-$x = 5;
-$y = 10;
-
-inverd($x, $y);
-
-echo $x;
-echo "<br>";
-echo $y;
+echo valid_email("abc@example.com")."\n";
+echo"</br>";
+echo valid_email("abc#example.com")."\n";
 ?>
